@@ -20,5 +20,4 @@
 
 - https://git-scm.com/downloads
 
-onClick={() => setMenuOpened((prev) => !prev)}
-style={getMenuStyles(menuOpened)}
+
