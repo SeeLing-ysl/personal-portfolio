@@ -1,0 +1,65 @@
+@import '../../styles/contants.scss';
+
+.wrapper{
+    overflow: hidden;
+
+    .container{
+        @media (max-width: $sm) {
+            justify-content: center;
+            text-align: center;
+            height: auto;
+        }
+
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        height:80vh;
+
+        .leftElement{
+            @media (max-width: $sm), (max-width: $md) {
+                position: relative;
+            }
+        }
+
+        .rightElement{
+            @media (max-width: $sm), (max-width: $md) {
+                text-align-last: center;
+                margin-bottom: 5rem;
+            }
+
+            text-align-last: right;
+        }
+
+        .person{
+            @media (max-width: $sm), (max-width: $md) {
+                position: relative;
+                left: 0;
+                background-size: 23rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            position: absolute;
+            bottom: -2rem;
+            margin: auto;
+            background-image: url("../splash2.png");
+            background-repeat: no-repeat;
+            background-size: 25rem;
+            left: 33%;
+
+            img{
+                @media (max-width: $sm) {
+                    width: 23rem;
+                    margin-bottom: 5rem;
+                }
+
+                width:25rem;
+            }
+        }
+
+        
+    }
+}

@@ -44,6 +44,7 @@ export const staggerContainer = (staggerChildren, delayChildren) => ({
       delayChildren,
     },
   },
+  initial: {},
 });
 
 export const textVariant = (delay) => ({
@@ -144,10 +145,25 @@ export const staggerChildren = {
   },
 };
 
-
 export const getMenuStyles = (menuOpened) => {
   if (document.documentElement.clientWidth <= 640) {
-    console.log("outside of sidebar reached")
     return { right: !menuOpened && "-100%" };
   }
 };
+
+export const floatIng = (delay, duration) => ({
+  hidden: {
+    rotate: [null, -5, 5, 0],
+  },
+  show: {
+    y: [-20, 20],
+    rotate: 0,
+    transition: {
+      delay,
+      duration,
+      repeat: Infinity,
+      // repeatDelay: 0.2,
+      repeatType: "reverse",
+    },
+  },
+});

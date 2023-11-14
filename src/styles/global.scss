@@ -15,7 +15,7 @@
 
 .paddings {
   @media (min-width: $sm) {
-    padding: 4rem;
+    padding: 5rem;
   }
 
 
@@ -32,6 +32,23 @@
 }
 
 
+.paddingsNav {
+  @media (min-width: $sm) {
+    padding: 5rem;
+  }
+
+
+  @media (min-width: $xl),
+  (min-width: $md) {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
 
 .xPaddings {
   @media (min-width: $sm) {
@@ -95,7 +112,7 @@
 .flexStart {
   display: flex;
   justify-content: start;
-  align-items: center;
+  /*align-items: center;*/
 }
 
 .flexEnd {
@@ -119,6 +136,14 @@
   line-height: 50px;
   font-size: 1.3rem;
   font-weight: 500
+}
+
+.secondaryTextTitle {
+  @media (max-width: $sm) {
+    font-size: 1.1rem;
+  }
+  font-size: 1.3rem;
+ 
 }
 .anchor {
   display: block;

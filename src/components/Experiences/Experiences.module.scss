@@ -1,0 +1,41 @@
+@import '../../styles/contants.scss';
+
+.wrapper{
+    .container{
+        flex-direction: column;
+        gap: 3rem;
+
+        .resume{
+            display:flex;
+            justify-content: center;
+            gap: 3rem;
+            position: relative;
+            width:100%;
+            
+           .resumeCategory{
+               /* width:20%;*/
+                flex: 0.5;
+
+           }
+
+           .resumeDetail{
+                /*width:80%;*/
+                flex-direction: column;
+                gap: 1.5rem;
+                flex: 1.5;
+            
+            .exp{
+                flex-direction: column;
+                line-height: 1.5;
+               
+
+                ul{
+                   padding-left: 1em; 
+                   padding-top: .5em;
+                }
+            }
+           }
+        }
+
+    }
+}

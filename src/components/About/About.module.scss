@@ -1,0 +1,77 @@
+@import '../../styles/contants.scss';
+
+
+
+.wrapper{
+    background-color: #FDFEFE;
+
+    .container{
+        @media (max-width: $sm) {
+            justify-content: center;
+            text-align: center;
+            height: auto;
+            
+        }
+
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        height: 100vh;
+     
+
+        .leftElement{
+            @media (max-width: $sm), (max-width: $md) {
+                position: relative;
+                width: 100%;
+                background-size: 15rem;
+                background-position: center;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            width:25%;
+            background-image: url("../brush.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position:left;
+            display:flex;
+            align-items: center;
+            justify-content: center;    
+
+            .about_img_1{
+                @media (max-width: $sm), (max-width: $md) {
+                    width:11rem;
+                    margin-left:3rem;
+                    margin-top: -2rem;
+                }
+
+                width: 20rem;
+                filter: drop-shadow(6px 8px 2px rgb(0 0 0 / 0.5));
+                
+            }
+        }
+
+        .rightElement{
+            @media (max-width: $sm), (max-width: $md) {
+                position: relative;
+                width:auto;
+                text-align: center;
+                line-height: 3;
+            }
+            
+            width:65%;
+            text-align: justify;
+            line-height: 2;            
+
+            .pText{
+                line-height: 1.5;
+                text-align: justify;
+            }
+        }
+        
+        
+    }
+
+}
