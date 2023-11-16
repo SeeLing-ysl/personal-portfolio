@@ -22,7 +22,7 @@ const About = () => {
           
         </motion.div>
         <div className={` ${css.rightElement}`}>
-          <motion.h2 className={`primaryText ${css.title}`} variants={fadeIn("left", "tween", 0.2, 1)}>
+          <motion.h2 className={`primaryText `} variants={fadeIn("left", "tween", 0.2, 1)}>
             About Me
           </motion.h2>
           <motion.p className={`${css.pText}`} variants={fadeIn("left", "tween", 0.4, 1)}>

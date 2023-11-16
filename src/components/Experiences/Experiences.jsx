@@ -2,12 +2,13 @@ import React from "react";
 import css from "./Experiences.module.scss";
 import { useInView } from "react-intersection-observer";
 import { workExp, education, skill, project } from "../../utils/data";
-import Typewriter from "../../hooks/useTypewriteEffect";
+import { Typewriter, Typewriter1 } from "../../hooks/useTypewriteEffect";
 import { motion } from "framer-motion";
 import {
   fadeIn,
   slideIn,
   staggerContainer,
+  textVariant,
   textVariant2,
 } from "../../utils/motion";
 
@@ -26,10 +27,14 @@ const ResumeCategory = ({ word, loop }) => {
 };
 
 const Experiences = () => {
+  const [ref, inView] = useInView();
+  const [ref1, inView1] = useInView();
   return (
     <section id="Experiences" className={`paddings ${css.wrapper}`}>
-      <motion.div className={`paddings flexCenter innerWidth ${css.container}`}>
-        <h2 className={`primaryText yPaddings`}>My Resume</h2>
+      <motion.div className={` flexCenter innerWidth bottomPaddings ${css.container}`}>
+        <h2 className={`primaryText yPaddings`} ref={ref}>
+          {inView && <Typewriter1 word="My Resume" loop={2} typeSpeed={200} />}
+        </h2>
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -37,23 +42,31 @@ const Experiences = () => {
           viewport={{ once: false, amount: 0.2 }}
           className={`${css.resume}`}
         >
-          <ResumeCategory word="Work Experience" loop={2} />
+          <ResumeCategory word="Work Experience" loop={1} />
           <motion.div className={`flexStart ${css.resumeDetail}`}>
             {workExp.map((exp, i) => {
               return (
                 <motion.div className={`${css.exp}`} key={i}>
-                  <motion.h2
+                  <motion.h3
                     variants={fadeIn("left", "tween", 0.2, 1)}
                     className={`secondaryTextTitle`}
                   >
+                    {/* <Typewriter1 word={`${exp.role}, ${exp.place}`}  loop={1} typeSpeed={80}/> */}
                     {exp.role}, {exp.place}
-                  </motion.h2>
-                  <motion.h4 variants={fadeIn("left", "tween", 0.4, 1)}>
+                  </motion.h3>
+                  <motion.h4
+                    variants={fadeIn("left", "tween", 0.4, 1)}
+                    className="resumeText"
+                  >
                     {exp.tenure}
                   </motion.h4>
                   <motion.ul variants={fadeIn("left", "tween", 0.6, 1)}>
                     {exp.details.map((detail, i) => {
-                      return <li key={i}>{detail}</li>;
+                      return (
+                        <li key={i} className="resumeText">
+                          {detail}
+                        </li>
+                      );
                     })}
                   </motion.ul>
                 </motion.div>
@@ -68,18 +81,32 @@ const Experiences = () => {
           viewport={{ once: false, amount: 0.25 }}
           className={`${css.resume}`}
         >
-          <ResumeCategory word="Education" loop={2} />
+          <ResumeCategory word="Education" loop={1} />
           <div className={`flexStart ${css.resumeDetail}`}>
             {education.map((edu, i) => {
               return (
                 <div className={`${css.exp}`} key={i}>
-                  <h2 className={`secondaryTextTitle`}>{edu.place}</h2>
-                  <h4>{edu.period}</h4>
-                  <ul>
+                  <motion.h3
+                    variants={fadeIn("left", "tween", 0.2, 1)}
+                    className={`secondaryTextTitle`}
+                  >
+                    {edu.place}
+                  </motion.h3>
+                  <motion.h4
+                    variants={fadeIn("left", "tween", 0.4, 1)}
+                    className="resumeText"
+                  >
+                    {edu.period}
+                  </motion.h4>
+                  <motion.ul variants={fadeIn("left", "tween", 0.6, 1)}>
                     {edu.details.map((detail, i) => {
-                      return <li key={i}>{detail}</li>;
+                      return (
+                        <li key={i} className="resumeText">
+                          {detail}
+                        </li>
+                      );
                     })}
-                  </ul>
+                  </motion.ul>
                 </div>
               );
             })}
@@ -92,13 +119,23 @@ const Experiences = () => {
           viewport={{ once: false, amount: 0.25 }}
           className={`${css.resume}`}
         >
-          <ResumeCategory word="Skills" loop={2} />
+          <ResumeCategory word="Skills" loop={1} />
           <div className={`flexStart ${css.resumeDetail}`}>
             {skill.map((ski, i) => {
               return (
                 <div className={`${css.exp}`} key={i}>
-                  <h2 className={`secondaryTextTitle`}>{ski.title}</h2>
-                  <p>{ski.details}</p>
+                  <motion.h3
+                    variants={fadeIn("left", "tween", 0.2, 1)}
+                    className={`secondaryTextTitle`}
+                  >
+                    {ski.title}
+                  </motion.h3>
+                  <motion.p
+                    variants={fadeIn("left", "tween", 0.4, 1)}
+                    className="resumeText"
+                  >
+                    {ski.details}
+                  </motion.p>
                 </div>
               );
             })}
@@ -111,17 +148,26 @@ const Experiences = () => {
           viewport={{ once: false, amount: 0.25 }}
           className={`${css.resume}`}
         >
-          <ResumeCategory word="Projects" loop={2} />
+          <ResumeCategory word="Projects" loop={1} />
           <div className={`flexStart ${css.resumeDetail}`}>
             {project.map((pro, i) => {
               return (
                 <div className={`${css.exp}`} key={i}>
-                  <h2 className={`secondaryTextTitle`}>{pro.title}</h2>
-                  <ul>
+                  <motion.h3
+                    variants={fadeIn("left", "tween", 0.2, 1)}
+                    className={`secondaryTextTitle`}
+                  >
+                    {pro.title}
+                  </motion.h3>
+                  <motion.ul variants={fadeIn("left", "tween", 0.4, 1)}>
                     {pro.details.map((detail, i) => {
-                      return <li key={i}>{detail}</li>;
+                      return (
+                        <li key={i} className="resumeText">
+                          {detail}
+                        </li>
+                      );
                     })}
-                  </ul>
+                  </motion.ul>
                 </div>
               );
             })}
